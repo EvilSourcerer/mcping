@@ -10,7 +10,9 @@ setInterval(function () {
         finished = true;
         if (available) {
             fs.appendFile('ips.txt', '\n' + randomIP, function (err) {
-                console.log("error saving to file! Permission problem?".red());
+                if(err) {
+                    console.log("error saving to file! Permission problem?".red);
+                }
             });
         }
     });
